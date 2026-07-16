@@ -1,0 +1,32 @@
+[
+  {
+    "ts": "2026-07-15T10:18:50.765927+00:00",
+    "machine_id": "CNC-02",
+    "severity": "high",
+    "status": "red",
+    "kind": "status",
+    "health": 11.2,
+    "ttf_display": "~7 min",
+    "message": "CNC-02 is in rough shape (health 11/100). Roughly ~7 min of cutting left on this proxy \u2014 check spindle vibration and current before the next tight-tolerance job."
+  },
+  {
+    "ts": "2026-07-15T10:18:50.766340+00:00",
+    "machine_id": "CNC-03",
+    "severity": "high",
+    "status": "red",
+    "kind": "status",
+    "health": 11.4,
+    "ttf_display": "~8 min",
+    "message": "CNC-03 is in rough shape (health 11/100). Roughly ~8 min of cutting left on this proxy \u2014 check spindle vibration and current before the next tight-tolerance job."
+  },
+  {
+    "ts": "2026-07-15T10:18:50.766684+00:00",
+    "machine_id": "CNC-04",
+    "severity": "medium",
+    "status": "amber",
+    "kind": "status",
+    "health": 51.6,
+    "ttf_display": "~4.3 h",
+    "message": "CNC-04 is warming up in the wrong way (health 52/100). About ~4.3 h left if the trend holds \u2014 peek at the vibration trace when you can."
+  }
+]

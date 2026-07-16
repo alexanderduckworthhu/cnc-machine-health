@@ -1,0 +1,268 @@
+================================================================================
+CNC MACHINE HEALTH — REVERSE ENGINEERING GUIDE
+================================================================================
+Purpose: Teach yourself how this portfolio project works by walking backward
+from the Plotly Dash floor board to synthetic CMAPSS-proxy cycles. Read with
+the code open side-by-side.
+
+Audience: You (career-changer who needs the WHY). Not for hiring managers —
+they get the README and docs/talking_points.md.
+
+Sibling projects: multilingual-rag-assistant, where-needs-overlap,
+icu-mortality-vital-shap, climate-migration-risk-index, esg-composite-scoring
+are SEPARATE folders under Portfolio/. Do not mix their pipelines, data, or
+apps. This guide never asks you to edit them.
+
+
+--------------------------------------------------------------------------------
+1. THE ONE IDEA (start here when lost)
+--------------------------------------------------------------------------------
+Question the whole app answers:
+
+  "Given multivariate spindle-like sensor streams, which cells look unusual
+   right now, how healthy are they on a 0–100 scale, and roughly how soon
+   should maintenance pay attention?"
+
+If a feature does not improve honest triage, shop-floor language, OPC-UA-shaped
+architecture, or Neuchâtel employer framing, it does not belong. That filter
+stops overbuilding (no LSTM-AE, no fake plant integration, no PHM leaderboard
+chase in weekend two).
+
+
+--------------------------------------------------------------------------------
+2. DATA / CONTROL FLOW (follow arrows with your finger)
+--------------------------------------------------------------------------------
+
+  scripts/build_demo_data.py
+           │  synthetic run-to-failure (CMAPSS-shaped)
+           ▼
+  data/sample/sensor_traces.csv
+           │  optional: real train_FD001.txt via demo_data.load_cmapss_txt
+           ▼
+  src/preprocess/missing.py
+           · plausibility bounds → NaN
+           · missingness flags
+           · ffill(limit=3)
+           · per-machine median for leftovers
+           ▼
+  src/preprocess/normalize.py
+           · StandardScaler on sensor columns
+           ▼
+  src/preprocess/windowing.py
+           · window=30, stride=3
+           · per sensor: mean, std, last, slope
+           ▼
+  src/models/isolation_forest.py
+           · IsolationForest.fit(X_windows)
+           · decision_function → raw scores (higher = healthier)
+           ▼
+  src/models/health_score.py
+           · empirical CDF of training scores → health 0–100
+           · green ≥75 / amber ≥50 / red <50
+           ▼
+  src/ttf.py
+           · heuristic cycles/hours from health (labeled proxy)
+           ▼
+  src/pipeline.py
+           · snapshots JSON + alerts JSON + windows.csv
+           │
+           ├──────────────────────────────┐
+           ▼                              ▼
+     src/opcua/mock_server.py          app.py (Dash)
+           · NodeIds like                  · tap a cell card (one click)
+             ns=2;s=CNC-01.Spindle…        · health + sensor traces
+           · OpcUaClient façade            · notes for that cell only
+                                           · human micro-copy (src/copy.py)
+
+Mental model:
+  PROXY     = "CMAPSS degradation wearing CNC clothes"
+  CLEAN     = "honest missingness, no invented physics"
+  WINDOWS   = "turn streams into IF-ready vectors"
+  SCORE     = "unsupervised unusualness → percentile health"
+  TTF       = "order-of-magnitude, not certified RUL"
+  OPCUA     = "architecture story without a live PLC"
+  DEMO      = "thin Dash over pipeline outputs"
+
+
+--------------------------------------------------------------------------------
+3. FILE MAP — WHAT EACH FILE OWNS
+--------------------------------------------------------------------------------
+
+src/config.py
+  - Locked knobs: WINDOW_SIZE, IF_CONTAMINATION, HEALTH_* thresholds, TTF_*
+  - Reverse-engineer tip: set HEALTH_GREEN_MIN to 90, re-train, watch the
+    board turn amber — thresholds are product decisions, not physics
+
+src/cmapss_mapping.py
+  - The interview honesty layer: which NASA column became which CNC name
+  - Read with docs/cmapss_cnc_mapping.md
+
+src/demo_data.py
+  - build_demo_fleet() creates 4 machines with distinct wear stories
+  - load_cmapss_txt() is optional realism when you drop NASA files in data/raw/
+
+src/preprocess/missing.py
+  - WHY NaN not clip: clipping invents spindle physics
+  - WHY ffill limit 3: short glitch ≠ long outage
+
+src/preprocess/normalize.py
+  - Global StandardScaler so the fleet shares one IF feature space
+
+src/preprocess/windowing.py
+  - mean/std/last/slope — the "good enough" feature set
+  - Tip: adding FFT here is the classic over-engineer move for v1
+
+src/models/isolation_forest.py
+  - Thin sklearn wrapper; contamination=0.05 is a prior, not truth
+
+src/models/health_score.py
+  - health = 100 * empirical_CDF(decision_function)
+  - Status bands live here + config — keep them identical in docs
+
+src/ttf.py
+  - Explicit power-curve heuristic; defend why you did NOT train RUL in v1
+
+src/opcua/mock_server.py + client.py
+  - Tag tree + read/browse API
+  - Interview line is in the module docstring — practice it
+
+src/pipeline.py
+  - Single train→persist entry used by scripts and app bootstrap
+
+src/copy.py
+  - Shop-floor micro-copy (status labels, alerts, floor summary)
+  - Reverse-engineer tip: change STATUS_LABEL["red"] and re-open the board
+
+src/dashboard/*
+  - layout = structure; charts = Plotly; callbacks = one-click cell selection
+  - No model training inside callbacks (keeps demos fast and honest)
+  - Dropdown removed on purpose — cards are the primary control
+
+app.py
+  - Dash + gunicorn `server`
+  - Bootstraps pipeline if snapshots missing; builds mock OPC-UA banner
+
+docs/talking_points.md
+  - 90-second oral exam — memorize before interviews
+
+docs/neuchatel_framing.md
+  - CSEM / Swatch Group / SME pitch variants
+
+docs/ship_checklist.md
+  - What "done" means in two weekends
+
+
+--------------------------------------------------------------------------------
+5. HEALTH SCORE — DERIVE IT ON PAPER
+--------------------------------------------------------------------------------
+Train Isolation Forest on early-life windows only (healthy regime —
+IF_HEALTHY_FRACTION in config). Then:
+
+  s      = decision_function(x)          # higher = more normal
+  med    = median(s_healthy)
+  mad    = median(|s_healthy - med|)
+  z      = (s - med) / (1.4826 * mad)  # robust z-score
+  health = clip(85 + 12 * z, 0, 100)
+
+Interpretation you can say out loud:
+  "Health ~85 is typical early-life behaviour. Each robust σ below that
+   knocks about 12 points off the score."
+
+Late-life windows fall below the healthy score distribution → low health → amber/red.
+
+Status:
+  green  if health ≥ 75
+  amber  if 50 ≤ health < 75
+  red    if health < 50
+
+TTF proxy (not ML):
+  ttf_cycles = TTF_MAX * (health/100)^gamma
+  with gamma set so health=50 ≈ 40 cycles (see config + ttf.py)
+
+
+--------------------------------------------------------------------------------
+6. PREPROCESS PIPELINE (MULTIVARIATE TIME SERIES)
+--------------------------------------------------------------------------------
+Per machine, chronologically:
+
+  raw row
+    → out-of-range sensors become NaN          (plausibility)
+    → record was_missing flags                 (don't erase uncertainty)
+    → forward-fill up to 3 cycles              (glitch repair only)
+    → remaining NaNs → machine median          (leading-edge gaps)
+    → StandardScaler                           (shared fleet scale)
+    → sliding windows (30 @ stride 3)
+         each window → [mean, std, last, slope] × 6 sensors = 24 features
+
+Missing-value philosophy: short gaps are noise; long gaps are information.
+We keep flags even after imputation so a v2 model can use them.
+
+
+--------------------------------------------------------------------------------
+7. MOCK OPC-UA — WHAT IS REAL VS THEATER
+--------------------------------------------------------------------------------
+Real in this repo:
+  - NodeId strings that look like Kepware/TwinCAT browse paths
+  - A client façade (browse / read / read_sensors / connection_banner)
+  - Values sourced from the sensor replay buffer + published health tags
+
+Theater (intentionally):
+  - No listening TCP socket on opc.tcp://… unless you add asyncua yourself
+  - No certificates, no PLC, no plant VPN
+
+Why hiring managers still care:
+  Manufacturing ML fails at the IT/OT boundary more often than at the model.
+  Showing the abstraction proves you know where the dashboard should plug in.
+
+
+--------------------------------------------------------------------------------
+8. REVERSE-ENGINEER EXERCISES (do these)
+--------------------------------------------------------------------------------
+A. Change IF_CONTAMINATION from 0.05 to 0.02, re-run
+   python scripts/train_isolation_forest.py
+   → Do more cards turn green? Why?
+
+B. Set WINDOW_SIZE=10, re-train, open the health chart
+   → Noisier score? Faster reaction to late-life wear?
+
+C. In demo_data._EOL_FACTORS, double vibration_rms drift, rebuild sample,
+   re-train → Does CNC-03 stay the reddest cell?
+
+D. Read one NodeId from OpcUaClient in a Python REPL after build_default_server
+   → Practice saying the banner line from app header
+
+E. Explain to a rubber duck why TTF is a heuristic — if you can't, re-read
+   src/ttf.py and docs/talking_points.md
+
+
+--------------------------------------------------------------------------------
+9. OVER-ENGINEERING WATCHLIST
+--------------------------------------------------------------------------------
+  - Autoencoders / LSTM-AE before the Dash board ships
+  - Supervised RUL "to beat CMAPSS papers"
+  - Real OPC-UA server + Docker Compose for a portfolio link
+  - 40-machine SCADA wall, dark-mode purple glow, animated 3D CNC
+  - Editing sibling Portfolio projects "while you're at it"
+
+If it does not help a Neuchâtel interviewer understand triage + OT awareness
+in 90 seconds, cut it.
+
+
+--------------------------------------------------------------------------------
+10. QUICK COMMANDS
+--------------------------------------------------------------------------------
+  python scripts/build_demo_data.py
+  python scripts/train_isolation_forest.py
+  pytest -q
+  python app.py
+  # deploy: gunicorn app:server --bind 0.0.0.0:$PORT
+
+
+--------------------------------------------------------------------------------
+11. ONE-SENTENCE SUMMARY
+--------------------------------------------------------------------------------
+This project turns CMAPSS-shaped degradation into a CNC spindle health board:
+window → Isolation Forest → robust health score → alerts, with a mock OPC-UA
+tag layer so the architecture matches how Swiss precision plants actually move
+sensor data — and nothing else.
+================================================================================

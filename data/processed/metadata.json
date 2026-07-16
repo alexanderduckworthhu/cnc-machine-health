@@ -1,0 +1,41 @@
+{
+  "generated_at": "2026-07-15T10:18:50.766733+00:00",
+  "n_rows": 657,
+  "n_windows": 182,
+  "n_train_windows": 72,
+  "n_machines": 4,
+  "feature_names": [
+    "vibration_rms__mean",
+    "vibration_rms__std",
+    "vibration_rms__last",
+    "vibration_rms__slope",
+    "vibration_peak__mean",
+    "vibration_peak__std",
+    "vibration_peak__last",
+    "vibration_peak__slope",
+    "temperature_spindle_c__mean",
+    "temperature_spindle_c__std",
+    "temperature_spindle_c__last",
+    "temperature_spindle_c__slope",
+    "temperature_coolant_c__mean",
+    "temperature_coolant_c__std",
+    "temperature_coolant_c__last",
+    "temperature_coolant_c__slope",
+    "current_draw_a__mean",
+    "current_draw_a__std",
+    "current_draw_a__last",
+    "current_draw_a__slope",
+    "load_pct__mean",
+    "load_pct__std",
+    "load_pct__last",
+    "load_pct__slope"
+  ],
+  "source": "cmapss_proxy_synthetic",
+  "model": "IsolationForest",
+  "train_regime": "early 50% of each machine's cycles",
+  "health_formula": "clip(85 + 12 * robust_z(IF.decision_function | healthy regime), 0, 100)",
+  "thresholds": {
+    "green_min": 75.0,
+    "amber_min": 50.0
+  }
+}

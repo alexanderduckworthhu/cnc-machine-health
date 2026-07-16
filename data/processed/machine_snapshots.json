@@ -1,0 +1,82 @@
+[
+  {
+    "machine_id": "CNC-02",
+    "label": "Spindle cell B \u2014 turning center",
+    "health": 11.2,
+    "status": "red",
+    "status_label": "Needs a look",
+    "ttf_cycles": 1.2,
+    "ttf_hours": 0.12,
+    "ttf_display": "~7 min",
+    "cycle_end": 201,
+    "if_score": -0.1304,
+    "latest_sensors": {
+      "vibration_rms": 4.749,
+      "vibration_peak": 14.219,
+      "temperature_spindle_c": 56.489,
+      "temperature_coolant_c": 32.628,
+      "current_draw_a": 23.37,
+      "load_pct": 67.654
+    }
+  },
+  {
+    "machine_id": "CNC-03",
+    "label": "Micro-milling \u2014 watch plate fixture",
+    "health": 11.4,
+    "status": "red",
+    "status_label": "Needs a look",
+    "ttf_cycles": 1.3,
+    "ttf_hours": 0.13,
+    "ttf_display": "~8 min",
+    "cycle_end": 228,
+    "if_score": -0.1298,
+    "latest_sensors": {
+      "vibration_rms": 7.227,
+      "vibration_peak": 23.435,
+      "temperature_spindle_c": 71.677,
+      "temperature_coolant_c": 37.535,
+      "current_draw_a": 28.828,
+      "load_pct": 80.37
+    }
+  },
+  {
+    "machine_id": "CNC-04",
+    "label": "Deburr / finish \u2014 shared cell",
+    "health": 51.6,
+    "status": "amber",
+    "status_label": "Keep an eye on it",
+    "ttf_cycles": 43.0,
+    "ttf_hours": 4.3,
+    "ttf_display": "~4.3 h",
+    "cycle_end": 129,
+    "if_score": -0.0305,
+    "latest_sensors": {
+      "vibration_rms": 2.86,
+      "vibration_peak": 7.926,
+      "temperature_spindle_c": 48.843,
+      "temperature_coolant_c": 29.369,
+      "current_draw_a": 18.709,
+      "load_pct": 57.659
+    }
+  },
+  {
+    "machine_id": "CNC-01",
+    "label": "Spindle cell A \u2014 bridge mill",
+    "health": 75.7,
+    "status": "green",
+    "status_label": "Looking good",
+    "ttf_cycles": 104.8,
+    "ttf_hours": 10.48,
+    "ttf_display": "~10.5 h",
+    "cycle_end": 96,
+    "if_score": 0.0293,
+    "latest_sensors": {
+      "vibration_rms": 2.436,
+      "vibration_peak": 7.018,
+      "temperature_spindle_c": 48.086,
+      "temperature_coolant_c": 27.456,
+      "current_draw_a": 18.934,
+      "load_pct": 54.752
+    }
+  }
+]

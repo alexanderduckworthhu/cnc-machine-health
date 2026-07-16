@@ -1,0 +1,27 @@
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.DS_Store
+.env
+*.egg-info/
+dist/
+build/
+
+# Real NASA CMAPSS dumps — never commit large zips
+data/raw/CMAPSS*/
+data/raw/*.zip
+data/raw/*.txt
+!data/raw/.gitkeep
+
+# Regenerated artefacts (keep demo sample + trained model for clone → run)
+data/processed/*
+!data/processed/.gitkeep
+!data/processed/machine_snapshots.json
+!data/processed/alerts.json
+!data/processed/metadata.json
+
+# Notebooks checkpoints
+notebooks/.ipynb_checkpoints/
