@@ -12,7 +12,7 @@ def apply_plausibility_bounds(
     ranges: dict[str, tuple[float, float]] | None = None,
     cols: list[str] | None = None,
 ) -> pd.DataFrame:
-    """Out-of-range values → NaN. Do not clip — clipping invents machine physics."""
+    """Out-of-range values → NaN. Do not clip, clipping invents machine physics."""
     ranges = ranges or PLAUSIBLE_RANGES
     cols = cols or SENSOR_COLUMNS
     out = df.copy()
@@ -64,7 +64,7 @@ def impute_remaining_with_group_median(
     group_col: str = "machine_id",
     cols: list[str] | None = None,
 ) -> pd.DataFrame:
-    """Last resort for leading NaNs after ffill — use per-machine median."""
+    """Last resort for leading NaNs after ffill, use per-machine median."""
     cols = cols or SENSOR_COLUMNS
     out = df.copy()
     for col in cols:

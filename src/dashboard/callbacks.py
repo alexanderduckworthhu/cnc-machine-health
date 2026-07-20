@@ -1,4 +1,4 @@
-"""Dash callbacks — cell selection and language drive the whole view."""
+"""Dash callbacks, cell selection and language drive the whole view."""
 
 from __future__ import annotations
 
@@ -133,7 +133,7 @@ def register_callbacks(app: Dash) -> None:
                 html.P(
                     [
                         html.Strong(machine_id),
-                        html.Span(f" — {machine_label(machine_id, lang)}"),
+                        html.Span(f", {machine_label(machine_id, lang)}"),
                     ],
                     className="detail-title",
                 ),

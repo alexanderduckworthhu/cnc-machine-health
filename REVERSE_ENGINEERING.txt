@@ -1,11 +1,11 @@
 ================================================================================
-CNC MACHINE HEALTH — REVERSE ENGINEERING GUIDE
+CNC MACHINE HEALTH: REVERSE ENGINEERING GUIDE
 ================================================================================
 Purpose: Teach yourself how this portfolio project works by walking backward
 from the Plotly Dash floor board to synthetic CMAPSS-proxy cycles. Read with
 the code open side-by-side.
 
-Audience: You (career-changer who needs the WHY). Not for hiring managers —
+Audience: You (career-changer who needs the WHY). Not for hiring managers , 
 they get the README and docs/talking_points.md.
 
 Sibling projects: multilingual-rag-assistant, where-needs-overlap,
@@ -85,13 +85,13 @@ Mental model:
 
 
 --------------------------------------------------------------------------------
-3. FILE MAP — WHAT EACH FILE OWNS
+3. FILE MAP. WHAT EACH FILE OWNS
 --------------------------------------------------------------------------------
 
 src/config.py
   - Locked knobs: WINDOW_SIZE, IF_CONTAMINATION, HEALTH_* thresholds, TTF_*
   - Reverse-engineer tip: set HEALTH_GREEN_MIN to 90, re-train, watch the
-    board turn amber — thresholds are product decisions, not physics
+    board turn amber, thresholds are product decisions, not physics
 
 src/cmapss_mapping.py
   - The interview honesty layer: which NASA column became which CNC name
@@ -109,7 +109,7 @@ src/preprocess/normalize.py
   - Global StandardScaler so the fleet shares one IF feature space
 
 src/preprocess/windowing.py
-  - mean/std/last/slope — the "good enough" feature set
+  - mean/std/last/slope, the "good enough" feature set
   - Tip: adding FFT here is the classic over-engineer move for v1
 
 src/models/isolation_forest.py
@@ -117,14 +117,14 @@ src/models/isolation_forest.py
 
 src/models/health_score.py
   - health = 100 * empirical_CDF(decision_function)
-  - Status bands live here + config — keep them identical in docs
+  - Status bands live here + config, keep them identical in docs
 
 src/ttf.py
   - Explicit power-curve heuristic; defend why you did NOT train RUL in v1
 
 src/opcua/mock_server.py + client.py
   - Tag tree + read/browse API
-  - Interview line is in the module docstring — practice it
+  - Interview line is in the module docstring, practice it
 
 src/pipeline.py
   - Single train→persist entry used by scripts and app bootstrap
@@ -136,14 +136,14 @@ src/copy.py
 src/dashboard/*
   - layout = structure; charts = Plotly; callbacks = one-click cell selection
   - No model training inside callbacks (keeps demos fast and honest)
-  - Dropdown removed on purpose — cards are the primary control
+  - Dropdown removed on purpose, cards are the primary control
 
 app.py
   - Dash + gunicorn `server`
   - Bootstraps pipeline if snapshots missing; builds mock OPC-UA banner
 
 docs/talking_points.md
-  - 90-second oral exam — memorize before interviews
+  - 90-second oral exam, memorize before interviews
 
 docs/neuchatel_framing.md
   - CSEM / Swatch Group / SME pitch variants
@@ -153,9 +153,9 @@ docs/ship_checklist.md
 
 
 --------------------------------------------------------------------------------
-5. HEALTH SCORE — DERIVE IT ON PAPER
+5. HEALTH SCORE. DERIVE IT ON PAPER
 --------------------------------------------------------------------------------
-Train Isolation Forest on early-life windows only (healthy regime —
+Train Isolation Forest on early-life windows only (healthy regime , 
 IF_HEALTHY_FRACTION in config). Then:
 
   s      = decision_function(x)          # higher = more normal
@@ -199,7 +199,7 @@ We keep flags even after imputation so a v2 model can use them.
 
 
 --------------------------------------------------------------------------------
-7. MOCK OPC-UA — WHAT IS REAL VS THEATER
+7. MOCK OPC-UA. WHAT IS REAL VS THEATER
 --------------------------------------------------------------------------------
 Real in this repo:
   - NodeId strings that look like Kepware/TwinCAT browse paths
@@ -231,7 +231,7 @@ C. In demo_data._EOL_FACTORS, double vibration_rms drift, rebuild sample,
 D. Read one NodeId from OpcUaClient in a Python REPL after build_default_server
    → Practice saying the banner line from app header
 
-E. Explain to a rubber duck why TTF is a heuristic — if you can't, re-read
+E. Explain to a rubber duck why TTF is a heuristic, if you can't, re-read
    src/ttf.py and docs/talking_points.md
 
 
@@ -264,5 +264,5 @@ in 90 seconds, cut it.
 This project turns CMAPSS-shaped degradation into a CNC spindle health board:
 window → Isolation Forest → robust health score → alerts, with a mock OPC-UA
 tag layer so the architecture matches how Swiss precision plants actually move
-sensor data — and nothing else.
+sensor data, and nothing else.
 ================================================================================

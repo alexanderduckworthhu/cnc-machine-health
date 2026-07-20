@@ -14,7 +14,7 @@ def _window_stats(block: np.ndarray) -> np.ndarray:
 
     Features per sensor: mean, std, last, slope (linear).
     WHY these four: IF is distance-based; mean/std/last catch level & volatility,
-    slope catches accelerating wear — without FFT / spectrograms (over-engineer trap).
+    slope catches accelerating wear, without FFT / spectrograms (over-engineer trap).
     """
     n_sensors = block.shape[1]
     feats: list[float] = []

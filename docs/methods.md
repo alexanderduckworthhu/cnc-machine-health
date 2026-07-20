@@ -1,6 +1,6 @@
 # Preprocessing + Isolation Forest + health score
 
-Companion to `REVERSE_ENGINEERING.txt` — code is source of truth.
+Companion to `REVERSE_ENGINEERING.txt`, code is source of truth.
 
 ## 1. Multivariate preprocess
 

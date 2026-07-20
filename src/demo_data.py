@@ -45,7 +45,7 @@ _EOL_FACTORS = {
 
 
 def _degradation_curve(n_cycles: int, steepness: float = 3.5) -> np.ndarray:
-    """Flat early life, accelerating late wear — better green/amber/red staging."""
+    """Flat early life, accelerating late wear, better green/amber/red staging."""
     t = np.linspace(0.0, 1.0, n_cycles)
     return t**steepness
 
@@ -82,7 +82,7 @@ def generate_unit_trace(
         signal[mask] = np.nan
         rows[col] = signal
 
-    # Remaining useful life label (cycles) — used only for TTF sanity checks / docs.
+    # Remaining useful life label (cycles), used only for TTF sanity checks / docs.
     rows["rul_cycles"] = np.arange(n_cycles, 0, -1)
     # Provenance tag so demos stay honest in the UI.
     rows["source"] = np.full(n_cycles, "cmapss_proxy_synthetic")

@@ -8,7 +8,7 @@ spindle cell and remap a subset of sensors into shop-floor vocabulary.
 WHY this works for interviews:
   - Same multivariate degradation structure (healthy → wear → failure).
   - Hiring managers in microtech recognize vibration / temp / current faster
-    than "sensor_11" — the proxy is honest if you say it out loud.
+    than "sensor_11", the proxy is honest if you say it out loud.
   - You are NOT claiming turbofan physics equals CNC physics; you are reusing
     a public degradation trajectory as a stand-in until plant data exists.
 """
@@ -26,7 +26,7 @@ CMAPSS_COLUMNS = [
 ]
 
 # Columns that actually vary under FD001 (others are near-constant).
-# Source: widely cited CMAPSS feature notes — we keep only informative ones.
+# Source: widely cited CMAPSS feature notes, we keep only informative ones.
 CMAPSS_INFORMATIVE = [
     "sensor_2",
     "sensor_3",
@@ -44,7 +44,7 @@ CMAPSS_INFORMATIVE = [
 # CNC proxy mapping used by demo_data + optional raw CMAPSS loader.
 # Each CNC feature is a scaled/renamed view of one CMAPSS sensor.
 CMAPSS_TO_CNC: dict[str, str] = {
-    # Vibration family — high-frequency / pressure-adjacent channels as RMS proxy
+    # Vibration family, high-frequency / pressure-adjacent channels as RMS proxy
     "sensor_11": "vibration_rms",
     "sensor_15": "vibration_peak",
     # Thermal family
@@ -63,7 +63,7 @@ Framing for manufacturing audiences
 Dataset: NASA CMAPSS FD001-style run-to-failure trajectories (public).
 Proxy story: each "engine unit" = one CNC spindle cell on a shared job shop floor.
 Sensor story: we rename and rescale informative CMAPSS channels into vibration,
-temperature, and current/load — the triad a Neuchâtel micro-machining lead would
+temperature, and current/load, the triad a Neuchâtel micro-machining lead would
 expect on a first health dashboard.
 
 What we claim: multivariate degradation + unsupervised anomaly scoring works as a

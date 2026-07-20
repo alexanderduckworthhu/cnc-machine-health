@@ -1,4 +1,4 @@
-"""Smoke tests — keep the 2-weekend bar honest."""
+"""Smoke tests, keep the 2-weekend bar honest."""
 
 from __future__ import annotations
 

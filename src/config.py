@@ -1,7 +1,7 @@
 """
 Locked modeling / framing choices for the CNC health portfolio project.
 
-WHY comments are intentional — they are interview talking points in code form.
+WHY comments are intentional, they are interview talking points in code form.
 Change a knob only if you can rewrite the WHY sentence.
 """
 
@@ -21,10 +21,10 @@ ASSETS_DIR = PROJECT_ROOT / "assets"
 # WHY 4 machines: enough for a floor-board story without a fake 40-asset SCADA wall.
 MACHINE_IDS = ["CNC-01", "CNC-02", "CNC-03", "CNC-04"]
 MACHINE_LABELS = {
-    "CNC-01": "Spindle cell A — bridge mill",
-    "CNC-02": "Spindle cell B — turning center",
-    "CNC-03": "Micro-milling — watch plate fixture",
-    "CNC-04": "Deburr / finish — shared cell",
+    "CNC-01": "Spindle cell A, bridge mill",
+    "CNC-02": "Spindle cell B, turning center",
+    "CNC-03": "Micro-milling, watch plate fixture",
+    "CNC-04": "Deburr / finish, shared cell",
 }
 
 # --- Sensors -----------------------------------------------------------------

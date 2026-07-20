@@ -1,6 +1,6 @@
-# Ship checklist — 2 weekends
+# Ship checklist, 2 weekends
 
-## Weekend 1 — Data + model
+## Weekend 1: Data + model
 - [x] Synthetic CMAPSS-proxy fleet (`scripts/build_demo_data.py`)
 - [x] Preprocess: plausibility → miss flags → ffill → median
 - [x] Window features (mean/std/last/slope), stride 3
@@ -11,7 +11,7 @@
 **Ship bar:** model runs offline; four machines show distinct statuses.  
 **Stop if tempted to:** train LSTM autoencoders, download all CMAPSS subsets, build a feature store.
 
-## Weekend 2 — Dashboard + industrial veneer + deploy
+## Weekend 2. Dashboard + industrial veneer + deploy
 - [x] Dash layout: cards, sensor traces, alert feed
 - [x] Mock OPC-UA server/client with realistic NodeIds
 - [x] README + talking points + Neuchâtel framing

@@ -2,7 +2,7 @@
 Multilingual UI copy (EN / FR / DE / IT / PT / ES / ZH / RU).
 
 Same pattern as where-needs-overlap and icu-mortality-vital-shap.
-Every user-visible string belongs here — charts, cards, alerts, and chrome.
+Every user-visible string belongs here, charts, cards, alerts, and chrome.
 """
 
 from __future__ import annotations
@@ -24,14 +24,14 @@ LANGUAGE_LABELS: dict[str, str] = {
 
 DEFAULT_LANG = "en"
 
-# Base English strings — other locales override keys they translate.
+# Base English strings, other locales override keys they translate.
 _EN: dict[str, str] = {
     "lang": "Language",
     "lang_hint": "Switch language anytime. The whole board follows.",
     "brand_eyebrow": "CELL HEALTH",
     "app_title": "CNC Spindle Monitor",
     "tagline": "Which cells need a look before the next precision run?",
-    "floor_hint": "Tap a cell — traces and notes update for that cell only.",
+    "floor_hint": "Tap a cell, traces and notes update for that cell only.",
     "floor_all_fine": "All four cells look fine right now.",
     "floor_need_look_1": "1 needs a look",
     "floor_need_look_n": "{n} need a look",
@@ -62,7 +62,7 @@ _EN: dict[str, str] = {
     "status_amber": "Keep an eye on it",
     "status_red": "Needs a look",
     "hint_green": "Nothing unusual in the recent window.",
-    "hint_amber": "Wear is climbing — worth a glance before the next precision run.",
+    "hint_amber": "Wear is climbing, worth a glance before the next precision run.",
     "hint_red": "This cell is drifting hard. Check vibration and current before you cut.",
     "aria_green": "status looking good",
     "aria_amber": "status keep an eye on it",
@@ -80,25 +80,25 @@ _EN: dict[str, str] = {
     "empty_alerts_machine": "Nothing queued for {machine_id}.",
     "disclaimer": (
         "Portfolio demo, not a certified condition monitor. "
-        "Sensor streams are a NASA CMAPSS proxy wearing CNC labels — "
+        "Sensor streams are a NASA CMAPSS proxy wearing CNC labels, "
         "useful for triage practice, not for real work orders."
     ),
     "opcua_banner": "Reading mock OPC-UA · {n} tags · replay buffer (not a live PLC)",
-    "detail_health": "Health {health:.0f}/100 — {status}. Approx. time left: {ttf}.",
+    "detail_health": "Health {health:.0f}/100, {status}. Approx. time left: {ttf}.",
     "card_aria": "{machine_id}, {status}, health {health:.0f} of 100",
     "alert_red": (
         "{machine_id} is in rough shape (health {health:.0f}/100). "
-        "Roughly {ttf} of cutting left on this proxy — "
+        "Roughly {ttf} of cutting left on this proxy, "
         "check spindle vibration and current before the next tight-tolerance job."
     ),
     "alert_amber": (
         "{machine_id} is warming up in the wrong way (health {health:.0f}/100). "
-        "About {ttf} left if the trend holds — peek at the vibration trace when you can."
+        "About {ttf} left if the trend holds, peek at the vibration trace when you can."
     ),
     "alert_drop": (
         "{machine_id} lost {delta:.0f} health points "
         "({prev:.0f} → {health:.0f}) in one window. "
-        "That’s a sharper step than usual — worth a quick look."
+        "That’s a sharper step than usual, worth a quick look."
     ),
     "ttf_days": "~{n:.1f} days",
     "ttf_hours": "~{n:.1f} h",
@@ -109,10 +109,10 @@ _EN: dict[str, str] = {
     "sensor_temperature_coolant_c": "Coolant temp (°C)",
     "sensor_current_draw_a": "Spindle current (A)",
     "sensor_load_pct": "Axis load (%)",
-    "machine_CNC-01": "Spindle cell A — bridge mill",
-    "machine_CNC-02": "Spindle cell B — turning center",
-    "machine_CNC-03": "Micro-milling — watch plate fixture",
-    "machine_CNC-04": "Deburr / finish — shared cell",
+    "machine_CNC-01": "Spindle cell A, bridge mill",
+    "machine_CNC-02": "Spindle cell B, turning center",
+    "machine_CNC-03": "Micro-milling, watch plate fixture",
+    "machine_CNC-04": "Deburr / finish, shared cell",
     "cards_aria": "Machine health cards",
     "health_graph_aria": "Health score over cycles",
     "sensor_graph_aria": "Vibration, temperature, and current traces",
@@ -124,7 +124,7 @@ _FR: dict[str, str] = {
     "brand_eyebrow": "SANTÉ DES CELLULES",
     "app_title": "Moniteur de broche CNC",
     "tagline": "Quelles cellules vérifier avant le prochain usinage de précision ?",
-    "floor_hint": "Touchez une cellule — traces et notes se mettent à jour.",
+    "floor_hint": "Touchez une cellule, traces et notes se mettent à jour.",
     "floor_all_fine": "Les quatre cellules vont bien pour l’instant.",
     "floor_need_look_1": "1 à vérifier",
     "floor_need_look_n": "{n} à vérifier",
@@ -154,7 +154,7 @@ _FR: dict[str, str] = {
     "status_amber": "À surveiller",
     "status_red": "À vérifier",
     "hint_green": "Rien d’inhabituel sur la fenêtre récente.",
-    "hint_amber": "L’usure monte — un coup d’œil avant le prochain usinage précis.",
+    "hint_amber": "L’usure monte, un coup d’œil avant le prochain usinage précis.",
     "hint_red": "Cette cellule dérive fort. Vérifiez vibration et courant avant de couper.",
     "aria_green": "état tout va bien",
     "aria_amber": "état à surveiller",
@@ -172,25 +172,25 @@ _FR: dict[str, str] = {
     "empty_alerts_machine": "Rien en file pour {machine_id}.",
     "disclaimer": (
         "Démo portfolio, pas un système de surveillance certifié. "
-        "Les flux capteurs sont un proxy NASA CMAPSS en vocabulaire CNC — "
+        "Les flux capteurs sont un proxy NASA CMAPSS en vocabulaire CNC, "
         "utile pour le triage, pas pour de vrais bons de travail."
     ),
     "opcua_banner": "OPC-UA simulé · {n} tags · tampon de relecture (pas de PLC réel)",
-    "detail_health": "Santé {health:.0f}/100 — {status}. Temps restant approx. : {ttf}.",
+    "detail_health": "Santé {health:.0f}/100, {status}. Temps restant approx. : {ttf}.",
     "card_aria": "{machine_id}, {status}, santé {health:.0f} sur 100",
     "alert_red": (
         "{machine_id} est en mauvais état (santé {health:.0f}/100). "
-        "Environ {ttf} d’usinage restant sur ce proxy — "
+        "Environ {ttf} d’usinage restant sur ce proxy, "
         "vérifiez vibration et courant avant le prochain usinage serré."
     ),
     "alert_amber": (
         "{machine_id} chauffe dans le mauvais sens (santé {health:.0f}/100). "
-        "Environ {ttf} restant si la tendance tient — regardez la trace de vibration."
+        "Environ {ttf} restant si la tendance tient, regardez la trace de vibration."
     ),
     "alert_drop": (
         "{machine_id} a perdu {delta:.0f} points de santé "
         "({prev:.0f} → {health:.0f}) en une fenêtre. "
-        "Plus net que d’habitude — un coup d’œil s’impose."
+        "Plus net que d’habitude, un coup d’œil s’impose."
     ),
     "ttf_days": "~{n:.1f} j",
     "ttf_hours": "~{n:.1f} h",
@@ -201,10 +201,10 @@ _FR: dict[str, str] = {
     "sensor_temperature_coolant_c": "Temp. liquide (°C)",
     "sensor_current_draw_a": "Courant broche (A)",
     "sensor_load_pct": "Charge axes (%)",
-    "machine_CNC-01": "Cellule broche A — fraiseuse pont",
-    "machine_CNC-02": "Cellule broche B — tour",
-    "machine_CNC-03": "Micro-fraisage — plaque montre",
-    "machine_CNC-04": "Ébavurage / finition — cellule partagée",
+    "machine_CNC-01": "Cellule broche A, fraiseuse pont",
+    "machine_CNC-02": "Cellule broche B, tour",
+    "machine_CNC-03": "Micro-fraisage, plaque montre",
+    "machine_CNC-04": "Ébavurage / finition, cellule partagée",
     "cards_aria": "Cartes de santé machines",
     "health_graph_aria": "Score de santé sur les cycles",
     "sensor_graph_aria": "Traces vibration, température et courant",
@@ -216,7 +216,7 @@ _DE: dict[str, str] = {
     "brand_eyebrow": "ZELLGESUNDHEIT",
     "app_title": "CNC-Spindelmonitor",
     "tagline": "Welche Zellen vor dem nächsten Präzisionslauf prüfen?",
-    "floor_hint": "Zelle antippen — Spuren und Notizen aktualisieren sich.",
+    "floor_hint": "Zelle antippen. Spuren und Notizen aktualisieren sich.",
     "floor_all_fine": "Alle vier Zellen sehen gerade gut aus.",
     "floor_need_look_1": "1 braucht Kontrolle",
     "floor_need_look_n": "{n} brauchen Kontrolle",
@@ -246,7 +246,7 @@ _DE: dict[str, str] = {
     "status_amber": "Im Auge behalten",
     "status_red": "Kontrolle nötig",
     "hint_green": "Nichts Ungewöhnliches im letzten Fenster.",
-    "hint_amber": "Verschleiß steigt — vor dem nächsten Präzisionslauf kurz prüfen.",
+    "hint_amber": "Verschleiß steigt, vor dem nächsten Präzisionslauf kurz prüfen.",
     "hint_red": "Diese Zelle driftet stark. Vibration und Strom vor dem Schnitt prüfen.",
     "aria_green": "Status sieht gut aus",
     "aria_amber": "Status im Auge behalten",
@@ -264,25 +264,25 @@ _DE: dict[str, str] = {
     "empty_alerts_machine": "Nichts in der Warteschlange für {machine_id}.",
     "disclaimer": (
         "Portfolio-Demo, kein zertifiziertes Condition-Monitoring. "
-        "Sensorsignale sind ein NASA-CMAPSS-Proxy mit CNC-Begriffen — "
+        "Sensorsignale sind ein NASA-CMAPSS-Proxy mit CNC-Begriffen, "
         "für Triage, nicht für echte Arbeitsaufträge."
     ),
     "opcua_banner": "OPC-UA-Mock · {n} Tags · Replay-Puffer (kein echtes PLC)",
-    "detail_health": "Gesundheit {health:.0f}/100 — {status}. Restzeit ca.: {ttf}.",
+    "detail_health": "Gesundheit {health:.0f}/100, {status}. Restzeit ca.: {ttf}.",
     "card_aria": "{machine_id}, {status}, Gesundheit {health:.0f} von 100",
     "alert_red": (
         "{machine_id} ist in schlechtem Zustand (Gesundheit {health:.0f}/100). "
-        "Etwa {ttf} Schnittzeit auf diesem Proxy — "
+        "Etwa {ttf} Schnittzeit auf diesem Proxy, "
         "Vibration und Strom vor dem nächsten Engtoleranz-Job prüfen."
     ),
     "alert_amber": (
         "{machine_id} läuft in die falsche Richtung warm (Gesundheit {health:.0f}/100). "
-        "Etwa {ttf} übrig, wenn der Trend hält — Vibrationsspur prüfen."
+        "Etwa {ttf} übrig, wenn der Trend hält. Vibrationsspur prüfen."
     ),
     "alert_drop": (
         "{machine_id} verlor {delta:.0f} Gesundheitspunkte "
         "({prev:.0f} → {health:.0f}) in einem Fenster. "
-        "Schärfer als üblich — kurz nachschauen."
+        "Schärfer als üblich, kurz nachschauen."
     ),
     "ttf_days": "~{n:.1f} T",
     "ttf_hours": "~{n:.1f} h",
@@ -293,10 +293,10 @@ _DE: dict[str, str] = {
     "sensor_temperature_coolant_c": "Kühlmitteltemp. (°C)",
     "sensor_current_draw_a": "Spindelstrom (A)",
     "sensor_load_pct": "Achslast (%)",
-    "machine_CNC-01": "Spindelzelle A — Portalfräse",
-    "machine_CNC-02": "Spindelzelle B — Drehzentrum",
-    "machine_CNC-03": "Mikrofräsen — Uhrwerkplatte",
-    "machine_CNC-04": "Entgraten / Finish — gemeinsame Zelle",
+    "machine_CNC-01": "Spindelzelle A. Portalfräse",
+    "machine_CNC-02": "Spindelzelle B. Drehzentrum",
+    "machine_CNC-03": "Mikrofräsen. Uhrwerkplatte",
+    "machine_CNC-04": "Entgraten / Finish, gemeinsame Zelle",
     "cards_aria": "Maschinen-Gesundheitskarten",
     "health_graph_aria": "Gesundheitsscore über Zyklen",
     "sensor_graph_aria": "Vibrations-, Temperatur- und Stromspuren",
@@ -308,7 +308,7 @@ _IT: dict[str, str] = {
     "brand_eyebrow": "SALUTE CELLE",
     "app_title": "Monitor mandrino CNC",
     "tagline": "Quali celle controllare prima della prossima lavorazione di precisione?",
-    "floor_hint": "Tocca una cella — tracce e note si aggiornano.",
+    "floor_hint": "Tocca una cella, tracce e note si aggiornano.",
     "floor_all_fine": "Le quattro celle sembrano a posto adesso.",
     "floor_need_look_1": "1 da controllare",
     "floor_need_look_n": "{n} da controllare",
@@ -338,7 +338,7 @@ _IT: dict[str, str] = {
     "status_amber": "Da tenere d’occhio",
     "status_red": "Da controllare",
     "hint_green": "Niente di insolito nella finestra recente.",
-    "hint_amber": "L’usura sale — uno sguardo prima della prossima corsa di precisione.",
+    "hint_amber": "L’usura sale, uno sguardo prima della prossima corsa di precisione.",
     "hint_red": "Questa cella deriva forte. Controlla vibrazione e corrente prima di tagliare.",
     "aria_green": "stato tutto ok",
     "aria_amber": "stato da tenere d’occhio",
@@ -356,25 +356,25 @@ _IT: dict[str, str] = {
     "empty_alerts_machine": "Niente in coda per {machine_id}.",
     "disclaimer": (
         "Demo portfolio, non un sistema di condition monitoring certificato. "
-        "I flussi sensore sono un proxy NASA CMAPSS con etichette CNC — "
+        "I flussi sensore sono un proxy NASA CMAPSS con etichette CNC, "
         "utile per il triage, non per ordini di lavoro reali."
     ),
     "opcua_banner": "OPC-UA mock · {n} tag · buffer di replay (nessun PLC reale)",
-    "detail_health": "Salute {health:.0f}/100 — {status}. Tempo rimasto approx.: {ttf}.",
+    "detail_health": "Salute {health:.0f}/100, {status}. Tempo rimasto approx.: {ttf}.",
     "card_aria": "{machine_id}, {status}, salute {health:.0f} su 100",
     "alert_red": (
         "{machine_id} è in cattive condizioni (salute {health:.0f}/100). "
-        "Circa {ttf} di taglio rimasti su questo proxy — "
+        "Circa {ttf} di taglio rimasti su questo proxy, "
         "controlla vibrazione e corrente prima del prossimo lavoro stretto."
     ),
     "alert_amber": (
         "{machine_id} si sta scaldando nel verso sbagliato (salute {health:.0f}/100). "
-        "Circa {ttf} rimasti se il trend tiene — guarda la traccia di vibrazione."
+        "Circa {ttf} rimasti se il trend tiene, guarda la traccia di vibrazione."
     ),
     "alert_drop": (
         "{machine_id} ha perso {delta:.0f} punti di salute "
         "({prev:.0f} → {health:.0f}) in una finestra. "
-        "Più netto del solito — vale uno sguardo."
+        "Più netto del solito, vale uno sguardo."
     ),
     "ttf_days": "~{n:.1f} g",
     "ttf_hours": "~{n:.1f} h",
@@ -385,10 +385,10 @@ _IT: dict[str, str] = {
     "sensor_temperature_coolant_c": "Temp. refrigerante (°C)",
     "sensor_current_draw_a": "Corrente mandrino (A)",
     "sensor_load_pct": "Carico assi (%)",
-    "machine_CNC-01": "Cella mandrino A — fresatrice a ponte",
-    "machine_CNC-02": "Cella mandrino B — tornio",
-    "machine_CNC-03": "Microfresatura — piastra orologio",
-    "machine_CNC-04": "Sbavatura / finitura — cella condivisa",
+    "machine_CNC-01": "Cella mandrino A, fresatrice a ponte",
+    "machine_CNC-02": "Cella mandrino B, tornio",
+    "machine_CNC-03": "Microfresatura, piastra orologio",
+    "machine_CNC-04": "Sbavatura / finitura, cella condivisa",
     "cards_aria": "Schede salute macchine",
     "health_graph_aria": "Punteggio salute sui cicli",
     "sensor_graph_aria": "Tracce vibrazione, temperatura e corrente",
@@ -400,7 +400,7 @@ _PT: dict[str, str] = {
     "brand_eyebrow": "SAÚDE DAS CÉLULAS",
     "app_title": "Monitor de fuso CNC",
     "tagline": "Quais células verificar antes da próxima corrida de precisão?",
-    "floor_hint": "Toque numa célula — traços e notas atualizam.",
+    "floor_hint": "Toque numa célula, traços e notas atualizam.",
     "floor_all_fine": "As quatro células estão bem agora.",
     "floor_need_look_1": "1 precisa de atenção",
     "floor_need_look_n": "{n} precisam de atenção",
@@ -430,7 +430,7 @@ _PT: dict[str, str] = {
     "status_amber": "Manter de olho",
     "status_red": "Precisa de atenção",
     "hint_green": "Nada invulgar na janela recente.",
-    "hint_amber": "O desgaste sobe — vale um olhar antes da próxima corrida de precisão.",
+    "hint_amber": "O desgaste sobe, vale um olhar antes da próxima corrida de precisão.",
     "hint_red": "Esta célula está a derivar. Verifique vibração e corrente antes de cortar.",
     "aria_green": "estado tudo bem",
     "aria_amber": "estado manter de olho",
@@ -448,25 +448,25 @@ _PT: dict[str, str] = {
     "empty_alerts_machine": "Nada na fila para {machine_id}.",
     "disclaimer": (
         "Demo de portfólio, não um sistema de monitorização certificado. "
-        "Os sensores são um proxy NASA CMAPSS com rótulos CNC — "
+        "Os sensores são um proxy NASA CMAPSS com rótulos CNC, "
         "útil para triagem, não para ordens de trabalho reais."
     ),
     "opcua_banner": "OPC-UA mock · {n} tags · buffer de replay (sem PLC real)",
-    "detail_health": "Saúde {health:.0f}/100 — {status}. Tempo restante approx.: {ttf}.",
+    "detail_health": "Saúde {health:.0f}/100, {status}. Tempo restante approx.: {ttf}.",
     "card_aria": "{machine_id}, {status}, saúde {health:.0f} de 100",
     "alert_red": (
         "{machine_id} está em mau estado (saúde {health:.0f}/100). "
-        "Cerca de {ttf} de corte restantes neste proxy — "
+        "Cerca de {ttf} de corte restantes neste proxy, "
         "verifique vibração e corrente antes do próximo trabalho apertado."
     ),
     "alert_amber": (
         "{machine_id} aquece no sentido errado (saúde {health:.0f}/100). "
-        "Cerca de {ttf} restantes se a tendência se mantiver — veja o traço de vibração."
+        "Cerca de {ttf} restantes se a tendência se mantiver, veja o traço de vibração."
     ),
     "alert_drop": (
         "{machine_id} perdeu {delta:.0f} pontos de saúde "
         "({prev:.0f} → {health:.0f}) numa janela. "
-        "Mais acentuado do que o habitual — vale um olhar."
+        "Mais acentuado do que o habitual, vale um olhar."
     ),
     "ttf_days": "~{n:.1f} d",
     "ttf_hours": "~{n:.1f} h",
@@ -477,10 +477,10 @@ _PT: dict[str, str] = {
     "sensor_temperature_coolant_c": "Temp. do refrigerante (°C)",
     "sensor_current_draw_a": "Corrente do fuso (A)",
     "sensor_load_pct": "Carga dos eixos (%)",
-    "machine_CNC-01": "Célula de fuso A — fresadora ponte",
-    "machine_CNC-02": "Célula de fuso B — torno",
-    "machine_CNC-03": "Microfresagem — placa de relógio",
-    "machine_CNC-04": "Rebarbação / acabamento — célula partilhada",
+    "machine_CNC-01": "Célula de fuso A, fresadora ponte",
+    "machine_CNC-02": "Célula de fuso B, torno",
+    "machine_CNC-03": "Microfresagem, placa de relógio",
+    "machine_CNC-04": "Rebarbação / acabamento, célula partilhada",
     "cards_aria": "Cartões de saúde das máquinas",
     "health_graph_aria": "Pontuação de saúde ao longo dos ciclos",
     "sensor_graph_aria": "Traços de vibração, temperatura e corrente",
@@ -492,7 +492,7 @@ _ES: dict[str, str] = {
     "brand_eyebrow": "SALUD DE CELDAS",
     "app_title": "Monitor de husillo CNC",
     "tagline": "¿Qué celdas revisar antes de la próxima carrera de precisión?",
-    "floor_hint": "Toca una celda — las trazas y notas se actualizan.",
+    "floor_hint": "Toca una celda, las trazas y notas se actualizan.",
     "floor_all_fine": "Las cuatro celdas se ven bien ahora.",
     "floor_need_look_1": "1 necesita revisión",
     "floor_need_look_n": "{n} necesitan revisión",
@@ -522,7 +522,7 @@ _ES: dict[str, str] = {
     "status_amber": "Vigilar",
     "status_red": "Revisar",
     "hint_green": "Nada raro en la ventana reciente.",
-    "hint_amber": "El desgaste sube — echa un vistazo antes de la próxima carrera precisa.",
+    "hint_amber": "El desgaste sube, echa un vistazo antes de la próxima carrera precisa.",
     "hint_red": "Esta celda deriva fuerte. Revisa vibración y corriente antes de cortar.",
     "aria_green": "estado todo bien",
     "aria_amber": "estado vigilar",
@@ -540,25 +540,25 @@ _ES: dict[str, str] = {
     "empty_alerts_machine": "Nada en cola para {machine_id}.",
     "disclaimer": (
         "Demo de portafolio, no un sistema de condition monitoring certificado. "
-        "Los sensores son un proxy NASA CMAPSS con etiquetas CNC — "
+        "Los sensores son un proxy NASA CMAPSS con etiquetas CNC, "
         "útil para el triage, no para órdenes de trabajo reales."
     ),
     "opcua_banner": "OPC-UA mock · {n} tags · búfer de replay (sin PLC real)",
-    "detail_health": "Salud {health:.0f}/100 — {status}. Tiempo restante approx.: {ttf}.",
+    "detail_health": "Salud {health:.0f}/100, {status}. Tiempo restante approx.: {ttf}.",
     "card_aria": "{machine_id}, {status}, salud {health:.0f} de 100",
     "alert_red": (
         "{machine_id} está en mal estado (salud {health:.0f}/100). "
-        "Aprox. {ttf} de corte restantes en este proxy — "
+        "Aprox. {ttf} de corte restantes en este proxy, "
         "revisa vibración y corriente antes del próximo trabajo de tolerancia estrecha."
     ),
     "alert_amber": (
         "{machine_id} se calienta en la dirección equivocada (salud {health:.0f}/100). "
-        "Aprox. {ttf} restantes si la tendencia se mantiene — mira la traza de vibración."
+        "Aprox. {ttf} restantes si la tendencia se mantiene, mira la traza de vibración."
     ),
     "alert_drop": (
         "{machine_id} perdió {delta:.0f} puntos de salud "
         "({prev:.0f} → {health:.0f}) en una ventana. "
-        "Más brusco de lo habitual — merece un vistazo."
+        "Más brusco de lo habitual, merece un vistazo."
     ),
     "ttf_days": "~{n:.1f} d",
     "ttf_hours": "~{n:.1f} h",
@@ -569,10 +569,10 @@ _ES: dict[str, str] = {
     "sensor_temperature_coolant_c": "Temp. del refrigerante (°C)",
     "sensor_current_draw_a": "Corriente del husillo (A)",
     "sensor_load_pct": "Carga de ejes (%)",
-    "machine_CNC-01": "Celda de husillo A — fresadora puente",
-    "machine_CNC-02": "Celda de husillo B — torno",
-    "machine_CNC-03": "Microfresado — placa de reloj",
-    "machine_CNC-04": "Desbarbado / acabado — celda compartida",
+    "machine_CNC-01": "Celda de husillo A, fresadora puente",
+    "machine_CNC-02": "Celda de husillo B, torno",
+    "machine_CNC-03": "Microfresado, placa de reloj",
+    "machine_CNC-04": "Desbarbado / acabado, celda compartida",
     "cards_aria": "Tarjetas de salud de máquinas",
     "health_graph_aria": "Puntuación de salud a lo largo de los ciclos",
     "sensor_graph_aria": "Trazas de vibración, temperatura y corriente",
@@ -584,7 +584,7 @@ _ZH: dict[str, str] = {
     "brand_eyebrow": "单元健康",
     "app_title": "CNC 主轴监测",
     "tagline": "下一次精密加工前，哪些单元需要先看一眼？",
-    "floor_hint": "点选单元 — 曲线与备注会随之更新。",
+    "floor_hint": "点选单元, 曲线与备注会随之更新。",
     "floor_all_fine": "四个单元目前都正常。",
     "floor_need_look_1": "1 台需要检查",
     "floor_need_look_n": "{n} 台需要检查",
@@ -614,7 +614,7 @@ _ZH: dict[str, str] = {
     "status_amber": "需关注",
     "status_red": "需检查",
     "hint_green": "近期窗口无明显异常。",
-    "hint_amber": "磨损在上升 — 下次精密加工前值得看一眼。",
+    "hint_amber": "磨损在上升, 下次精密加工前值得看一眼。",
     "hint_red": "该单元漂移明显。切削前请检查振动与电流。",
     "aria_green": "状态良好",
     "aria_amber": "状态需关注",
@@ -632,25 +632,25 @@ _ZH: dict[str, str] = {
     "empty_alerts_machine": "{machine_id} 暂无排队事项。",
     "disclaimer": (
         "作品集演示，非认证状态监测系统。"
-        "传感器流为 NASA CMAPSS 代理并映射为 CNC 术语 — "
+        "传感器流为 NASA CMAPSS 代理并映射为 CNC 术语, "
         "用于分诊练习，不可用于真实工单。"
     ),
     "opcua_banner": "模拟 OPC-UA · {n} 个标签 · 回放缓冲（非真实 PLC）",
-    "detail_health": "健康度 {health:.0f}/100 — {status}。预计剩余时间：{ttf}。",
+    "detail_health": "健康度 {health:.0f}/100, {status}。预计剩余时间：{ttf}。",
     "card_aria": "{machine_id}，{status}，健康度 {health:.0f}/100",
     "alert_red": (
         "{machine_id} 状况较差（健康度 {health:.0f}/100）。"
-        "此代理大约还剩 {ttf} 切削时间 — "
+        "此代理大约还剩 {ttf} 切削时间, "
         "下次紧公差加工前请检查主轴振动与电流。"
     ),
     "alert_amber": (
         "{machine_id} 正在向不利方向升温（健康度 {health:.0f}/100）。"
-        "若趋势持续大约还剩 {ttf} — 请查看振动曲线。"
+        "若趋势持续大约还剩 {ttf}, 请查看振动曲线。"
     ),
     "alert_drop": (
         "{machine_id} 在一个窗口内下降了 {delta:.0f} 健康分 "
         "（{prev:.0f} → {health:.0f}）。"
-        "比平时更陡 — 值得快速查看。"
+        "比平时更陡, 值得快速查看。"
     ),
     "ttf_days": "~{n:.1f} 天",
     "ttf_hours": "~{n:.1f} 小时",
@@ -661,10 +661,10 @@ _ZH: dict[str, str] = {
     "sensor_temperature_coolant_c": "冷却液温度 (°C)",
     "sensor_current_draw_a": "主轴电流 (A)",
     "sensor_load_pct": "轴负载 (%)",
-    "machine_CNC-01": "主轴单元 A — 龙门铣",
-    "machine_CNC-02": "主轴单元 B — 车削中心",
-    "machine_CNC-03": "微铣 — 表盘夹具",
-    "machine_CNC-04": "去毛刺 / 精整 — 共用单元",
+    "machine_CNC-01": "主轴单元 A, 龙门铣",
+    "machine_CNC-02": "主轴单元 B, 车削中心",
+    "machine_CNC-03": "微铣, 表盘夹具",
+    "machine_CNC-04": "去毛刺 / 精整, 共用单元",
     "cards_aria": "机器健康卡片",
     "health_graph_aria": "各周期健康分数",
     "sensor_graph_aria": "振动、温度与电流曲线",
@@ -676,7 +676,7 @@ _RU: dict[str, str] = {
     "brand_eyebrow": "ЗДОРОВЬЕ ЯЧЕЕК",
     "app_title": "Монитор шпинделя CNC",
     "tagline": "Какие ячейки проверить перед следующим точным прогоном?",
-    "floor_hint": "Нажмите ячейку — графики и заметки обновятся.",
+    "floor_hint": "Нажмите ячейку, графики и заметки обновятся.",
     "floor_all_fine": "Все четыре ячейки сейчас в порядке.",
     "floor_need_look_1": "1 требует проверки",
     "floor_need_look_n": "{n} требуют проверки",
@@ -706,7 +706,7 @@ _RU: dict[str, str] = {
     "status_amber": "Наблюдать",
     "status_red": "Проверить",
     "hint_green": "В недавнем окне ничего необычного.",
-    "hint_amber": "Износ растёт — стоит взглянуть перед следующим точным прогоном.",
+    "hint_amber": "Износ растёт, стоит взглянуть перед следующим точным прогоном.",
     "hint_red": "Ячейка сильно дрейфует. Проверьте вибрацию и ток перед резанием.",
     "aria_green": "статус всё хорошо",
     "aria_amber": "статус наблюдать",
@@ -724,25 +724,25 @@ _RU: dict[str, str] = {
     "empty_alerts_machine": "Нет очереди для {machine_id}.",
     "disclaimer": (
         "Портфолио-демо, не сертифицированная система мониторинга. "
-        "Потоки датчиков — прокси NASA CMAPSS в терминах CNC — "
+        "Потоки датчиков, прокси NASA CMAPSS в терминах CNC, "
         "для практики triage, не для реальных нарядов."
     ),
     "opcua_banner": "Макет OPC-UA · {n} тегов · буфер воспроизведения (не живой ПЛК)",
-    "detail_health": "Здоровье {health:.0f}/100 — {status}. Осталось примерно: {ttf}.",
+    "detail_health": "Здоровье {health:.0f}/100, {status}. Осталось примерно: {ttf}.",
     "card_aria": "{machine_id}, {status}, здоровье {health:.0f} из 100",
     "alert_red": (
         "{machine_id} в плохом состоянии (здоровье {health:.0f}/100). "
-        "Около {ttf} резания на этом прокси — "
+        "Около {ttf} резания на этом прокси, "
         "проверьте вибрацию и ток перед следующей жёсткой точностью."
     ),
     "alert_amber": (
         "{machine_id} греется не в ту сторону (здоровье {health:.0f}/100). "
-        "Около {ttf}, если тренд сохранится — посмотрите трасс вибрации."
+        "Около {ttf}, если тренд сохранится, посмотрите трасс вибрации."
     ),
     "alert_drop": (
         "{machine_id} потерял {delta:.0f} пунктов здоровья "
         "({prev:.0f} → {health:.0f}) за одно окно. "
-        "Резче обычного — стоит быстро глянуть."
+        "Резче обычного, стоит быстро глянуть."
     ),
     "ttf_days": "~{n:.1f} д",
     "ttf_hours": "~{n:.1f} ч",
@@ -753,10 +753,10 @@ _RU: dict[str, str] = {
     "sensor_temperature_coolant_c": "Темп. СОЖ (°C)",
     "sensor_current_draw_a": "Ток шпинделя (А)",
     "sensor_load_pct": "Нагрузка осей (%)",
-    "machine_CNC-01": "Шпиндельная ячейка A — мостовой фрезер",
-    "machine_CNC-02": "Шпиндельная ячейка B — токарный центр",
-    "machine_CNC-03": "Микрофрезерование — пластина часов",
-    "machine_CNC-04": "Зачистка / финиш — общая ячейка",
+    "machine_CNC-01": "Шпиндельная ячейка A, мостовой фрезер",
+    "machine_CNC-02": "Шпиндельная ячейка B, токарный центр",
+    "machine_CNC-03": "Микрофрезерование, пластина часов",
+    "machine_CNC-04": "Зачистка / финиш, общая ячейка",
     "cards_aria": "Карточки здоровья станков",
     "health_graph_aria": "Оценка здоровья по циклам",
     "sensor_graph_aria": "Трассы вибрации, температуры и тока",

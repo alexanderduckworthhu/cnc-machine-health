@@ -4,7 +4,7 @@ Mock OPC-UA server / tag store for portfolio demos.
 Good-enough bar (2 weekends):
   - Realistic node IDs: ns=2;s=CNC-01.Spindle.VibrationRMS
   - A client API that looks like industrial middleware (read / browse / subscribe stub)
-  - Values fed from the processed sensor CSV — NOT a live asyncua TCP server by default
+  - Values fed from the processed sensor CSV. NOT a live asyncua TCP server by default
 
 Over-engineer trap:
   - Standing up real asyncua + certificates + Docker networking for a hiring demo

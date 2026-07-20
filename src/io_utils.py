@@ -1,4 +1,4 @@
-"""Typed file I/O helpers — never fail silently."""
+"""Typed file I/O helpers, never fail silently."""
 
 from __future__ import annotations
 

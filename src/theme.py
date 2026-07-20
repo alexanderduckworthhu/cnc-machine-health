@@ -7,7 +7,7 @@ at runtime, so this module is the Python-side source of truth for hex values.
 
 from __future__ import annotations
 
-# Mirror of assets/styles.css :root — change both when adjusting the palette.
+# Mirror of assets/styles.css :root, change both when adjusting the palette.
 COLOR_BG_0 = "#0b1016"
 COLOR_BG_1 = "#121a22"
 COLOR_PANEL = "#18222d"

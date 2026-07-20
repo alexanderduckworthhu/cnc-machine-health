@@ -1,5 +1,5 @@
 """
-CNC Spindle Health Monitor — Plotly Dash entrypoint.
+CNC Spindle Health Monitor: Plotly Dash entrypoint.
 
 Run locally:
   python app.py

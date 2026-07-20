@@ -89,7 +89,7 @@ def run_pipeline(
     windows, feature_matrix = build_windows(scaled_traces)
     if len(feature_matrix) == 0:
         raise RuntimeError(
-            "No windows built — check WINDOW_SIZE against trace length per machine."
+            "No windows built, check WINDOW_SIZE against trace length per machine."
         )
 
     healthy_mask = _healthy_regime_mask(windows)
