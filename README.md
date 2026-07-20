@@ -1,18 +1,18 @@
 # CNC Spindle Health Monitor
 
-A Plotly Dash floor board that turns multivariate spindle-like sensor streams into per-cell health scores, time-to-failure estimates, and maintenance notes — built for Neuchâtel microtechnology interviews (CSEM, Swatch Group precision manufacturing, Swiss SMEs).
+A Plotly Dash floor board that turns multivariate spindle-like sensor streams into per-cell health scores, time-to-failure estimates, and maintenance notes ; built for Neuchâtel microtechnology interviews (CSEM, Swatch Group precision manufacturing, Swiss SMEs).
 
 | | |
 |---|---|
-| **Live app** | _Add Render / Railway URL after deploy — see `docs/deploy.md`_ |
-| **Status** | Portfolio learning project — not a certified CMMS / condition monitor |
+| **Live app** | _Add Render / Railway URL after deploy ; see `docs/deploy.md`_ |
+| **Status** | Portfolio learning project ; not a certified CMMS / condition monitor |
 | **Sibling projects** | `multilingual-rag-assistant` and `where-needs-overlap` are separate folders; this repo does not modify them |
 
 ---
 
 ## Why it exists
 
-Precision cells in watchmaking and micro-machining lose money when spindle wear shows up as scrap, not as an earlier triage signal. Plant teams rarely have labeled failure datasets on day one, and generic “AI ops” dashboards skip the OT vocabulary (vibration / temperature / current, OPC-UA-shaped tags) that manufacturing leads expect. This project ships an unsupervised health board with honest proxy data and an industrial client façade — scoped for a two-weekend demo.
+Precision cells in watchmaking and micro-machining lose money when spindle wear shows up as scrap, not as an earlier triage signal. Plant teams rarely have labeled failure datasets on day one, and generic “AI ops” dashboards skip the OT vocabulary (vibration / temperature / current, OPC-UA-shaped tags) that manufacturing leads expect. This project ships an unsupervised health board with honest proxy data and an industrial client façade ; scoped for a two-weekend demo.
 
 ---
 
@@ -53,7 +53,7 @@ Health formula (locked):
 |---|---|
 | **Primary demo source** | Synthetic CMAPSS-shaped run-to-failure traces (`data/sample/sensor_traces.csv`) |
 | **Optional real source** | NASA CMAPSS `train_FD001.txt` via `src.demo_data.load_cmapss_txt` |
-| **License / access** | Synthetic demo is project-generated. NASA CMAPSS is a public NASA prognostics dataset — cite NASA when using the raw files |
+| **License / access** | Synthetic demo is project-generated. NASA CMAPSS is a public NASA prognostics dataset ; cite NASA when using the raw files |
 | **Anonymization** | No personal data. Machine IDs are fictional shop-floor labels |
 | **Honesty limit** | Turbofan physics ≠ CNC spindle physics. Remapping is for multivariate degradation structure and shop-floor vocabulary |
 | **Production gap** | Replace the replay buffer with a real OPC-UA/Kepware client, add work-order labels, and keep an audit log of health transitions |
@@ -89,8 +89,8 @@ Deploy: `gunicorn app:server --bind 0.0.0.0:$PORT` (see `docs/deploy.md`).
 ## What I’d improve next
 
 1. **Fit Isolation Forest on a longer healthy corpus** (multiple early-life tools/recipes) so health is less sensitive to a four-machine demo fleet.
-2. **Tighten FR/DE shop-floor phrasing** with a native reviewer — the EN/FR/DE/IT/PT/ES/ZH/RU switcher is live in `src/i18n.py`, but manufacturing jargon benefits from local review.
-3. **Replace the TTF heuristic with a censored survival model** once a plant can supply work-order timestamps — the current curve is for planning order-of-magnitude only.
+2. **Tighten FR/DE shop-floor phrasing** with a native reviewer ; the EN/FR/DE/IT/PT/ES/ZH/RU switcher is live in `src/i18n.py`, but manufacturing jargon benefits from local review.
+3. **Replace the TTF heuristic with a censored survival model** once a plant can supply work-order timestamps ; the current curve is for planning order-of-magnitude only.
 
 ---
 
