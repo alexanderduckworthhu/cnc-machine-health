@@ -63,7 +63,7 @@ Framing for manufacturing audiences
 Dataset: NASA CMAPSS FD001-style run-to-failure trajectories (public).
 Proxy story: each "engine unit" = one CNC spindle cell on a shared job shop floor.
 Sensor story: we rename and rescale informative CMAPSS channels into vibration,
-temperature, and current/load, the triad a Neuchâtel micro-machining lead would
+temperature, and current/load, the triad a precision micro-machining lead would
 expect on a first health dashboard.
 
 What we claim: multivariate degradation + unsupervised anomaly scoring works as a

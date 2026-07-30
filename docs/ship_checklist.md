@@ -14,7 +14,7 @@
 ## Weekend 2. Dashboard + industrial veneer + deploy
 - [x] Dash layout: cards, sensor traces, alert feed
 - [x] Mock OPC-UA server/client with realistic NodeIds
-- [x] README + talking points + Neuchâtel framing
+- [x] README + talking points + manufacturing framing
 - [x] REVERSE_ENGINEERING.txt
 - [ ] Deploy to Render or Railway (`docs/deploy.md`)
 - [ ] Record 90s Loom walkthrough

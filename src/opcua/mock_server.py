@@ -7,10 +7,10 @@ Good-enough bar (2 weekends):
   - Values fed from the processed sensor CSV. NOT a live asyncua TCP server by default
 
 Over-engineer trap:
-  - Standing up real asyncua + certificates + Docker networking for a hiring demo
-  - Pretending you integrated with a Swatch Group plant network
+  - Standing up real asyncua + certificates + Docker networking for a portfolio demo
+  - Pretending you integrated with a live plant network
 
-Interview line:
+Stakeholder line:
   "The dashboard reads through an OPC-UA-shaped abstraction. In production that
    client would point at Kepware/TwinCAT; here it reads a replay buffer so the
    architecture story is visible without plant access."

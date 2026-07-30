@@ -1,6 +1,6 @@
 # CNC Spindle Health Monitor
 
-A Plotly Dash floor board that turns multivariate spindle-like sensor streams into per-cell health scores, time-to-failure estimates, and maintenance notes, built for Neuchâtel microtechnology interviews (CSEM, Swatch Group precision manufacturing, Swiss SMEs).
+A Plotly Dash floor board that turns multivariate spindle-like sensor streams into per-cell health scores, time-to-failure estimates, and maintenance notes, built for precision manufacturing and microtechnology teams.
 
 | | |
 |---|---|
@@ -21,7 +21,7 @@ Precision cells in watchmaking and micro-machining lose money when spindle wear 
 | Choice | Considered instead | Why this one |
 |--------|-------------------|--------------|
 | **NASA CMAPSS-style trajectories remapped to CNC vocabulary** | Real plant historian extract; pure random noise | Public run-to-failure structure without NDA data; mapping documented in `docs/cmapss_cnc_mapping.md` |
-| **Isolation Forest on window stats (mean / std / last / slope)** | LSTM autoencoder; supervised RUL regressor | Works without failure labels; interviewable; ships in a weekend |
+| **Isolation Forest on window stats (mean / std / last / slope)** | LSTM autoencoder; supervised RUL regressor | Works without failure labels; explainable; ships in a weekend |
 | **Robust z-score health (0–100) vs healthy-regime scores** | Empirical CDF of all windows; raw anomaly flags | Stabler on a small demo fleet; green ≥75 / amber ≥50 / red thresholds match shop-floor language |
 | **TTF as an explicit health→cycles heuristic** | Trained RUL model on CMAPSS | Avoids a second modeling project; labeled as proxy in the UI |
 | **Mock OPC-UA tag layer (`ns=2;s=CNC-01.Spindle…`)** | Live asyncua TCP server + certificates | Shows IT/OT architecture without pretending plant access |
@@ -112,4 +112,4 @@ docs/                  Mapping, framing, deploy
 REVERSE_ENGINEERING.txt
 ```
 
-Interview notes: `docs/talking_points.md`, `docs/neuchatel_framing.md`.
+Presentation notes: `docs/talking_points.md`, `docs/manufacturing_framing.md`.

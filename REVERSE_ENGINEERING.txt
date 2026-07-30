@@ -24,7 +24,7 @@ Question the whole app answers:
    should maintenance pay attention?"
 
 If a feature does not improve honest triage, shop-floor language, OPC-UA-shaped
-architecture, or Neuchâtel employer framing, it does not belong. That filter
+architecture, or manufacturing employer framing, it does not belong. That filter
 stops overbuilding (no LSTM-AE, no fake plant integration, no PHM leaderboard
 chase in weekend two).
 
@@ -143,10 +143,10 @@ app.py
   - Bootstraps pipeline if snapshots missing; builds mock OPC-UA banner
 
 docs/talking_points.md
-  - 90-second oral exam, memorize before interviews
+  - 90-second oral walkthrough, memorize before presenting this work
 
-docs/neuchatel_framing.md
-  - CSEM / Swatch Group / SME pitch variants
+docs/manufacturing_framing.md
+  - Precision manufacturing / SME pitch variants
 
 docs/ship_checklist.md
   - What "done" means in two weekends
@@ -244,7 +244,7 @@ E. Explain to a rubber duck why TTF is a heuristic, if you can't, re-read
   - 40-machine SCADA wall, dark-mode purple glow, animated 3D CNC
   - Editing sibling Portfolio projects "while you're at it"
 
-If it does not help a Neuchâtel interviewer understand triage + OT awareness
+If it does not help a manufacturing stakeholder understand triage + OT awareness
 in 90 seconds, cut it.
 
 
@@ -263,6 +263,6 @@ in 90 seconds, cut it.
 --------------------------------------------------------------------------------
 This project turns CMAPSS-shaped degradation into a CNC spindle health board:
 window → Isolation Forest → robust health score → alerts, with a mock OPC-UA
-tag layer so the architecture matches how Swiss precision plants actually move
+tag layer so the architecture matches how precision plants actually move
 sensor data, and nothing else.
 ================================================================================

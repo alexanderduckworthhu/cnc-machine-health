@@ -29,7 +29,7 @@ Synthetic demo data is already in CNC-ish units (mm/s, °C, A, %).
 If you load real CMAPSS `.txt` via `src/demo_data.load_cmapss_txt`, values are **min-max rescaled** into plausible CNC bands for demo readability, say that in interviews.
 
 ## What NOT to say
-- “This predicts Swatch Group machine failures.”
+- “This predicts a specific OEM’s machine failures.”
 - “Turbofan sensor_11 *is* vibration.”
 - “TTF is certified remaining useful life.”
 
