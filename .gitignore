@@ -25,3 +25,6 @@ data/processed/*
 
 # Notebooks checkpoints
 notebooks/.ipynb_checkpoints/
+
+# Local reverse-engineering notes (not for public repos)
+REVERSE_ENGINEERING*
