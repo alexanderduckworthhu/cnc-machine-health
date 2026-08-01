@@ -4,7 +4,7 @@ A Plotly Dash floor board that turns multivariate spindle-like sensor streams in
 
 | | |
 |---|---|
-| **Live app** | _Add Render / Railway URL after deploy, see `docs/deploy.md`_ |
+| **Live app** | https://cnc-machine-health.onrender.com/ |
 | **Status** | Portfolio learning project, not a certified CMMS / condition monitor |
 | **Sibling projects** | `multilingual-rag-assistant` and `where-needs-overlap` are separate folders; this repo does not modify them |
 
