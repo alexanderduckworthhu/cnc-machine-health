@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CNC Spindle Health Monitor · Alexander Duckworth</title>
+  <meta name="description" content="A Plotly Dash floor board that turns multivariate sensor streams into per-cell health scores, TTF estimates, and maintenance notes." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+:root {
+  --bg: #0b0e14;
+  --bg-alt: #10141d;
+  --card: #141926;
+  --card-border: #232b3d;
+  --text: #e6e9f0;
+  --text-dim: #9aa3b5;
+  --accent: #4fd1a5;
+  --accent-dim: rgba(79, 209, 165, 0.12);
+  --mono: "JetBrains Mono", ui-monospace, monospace;
+  --sans: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: var(--sans);
+  background: radial-gradient(1200px 600px at 10% -10%, #152033 0%, var(--bg) 55%);
+  color: var(--text);
+  line-height: 1.65;
+  min-height: 100vh;
+}
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+.wrap { max-width: 860px; margin: 0 auto; padding: 40px 24px 80px; }
+.eyebrow {
+  color: var(--text-dim); font-size: 0.85rem; letter-spacing: 0.04em;
+  text-transform: uppercase; margin-bottom: 10px;
+}
+h1 { font-size: clamp(1.8rem, 4vw, 2.4rem); line-height: 1.2; margin-bottom: 14px; }
+.lead { color: var(--text-dim); font-size: 1.05rem; margin-bottom: 22px; }
+.note {
+  background: var(--accent-dim); border: 1px solid rgba(79,209,165,0.35);
+  border-radius: 12px; padding: 14px 16px; color: var(--text-dim);
+  font-size: 0.95rem; margin-bottom: 28px;
+}
+.actions { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 36px; }
+.btn {
+  display: inline-block; padding: 10px 16px; border-radius: 10px;
+  border: 1px solid var(--card-border); color: var(--text);
+  background: var(--card); font-weight: 600; text-decoration: none !important;
+}
+.btn-primary {
+  background: var(--accent); color: #06261b; border-color: var(--accent);
+}
+.btn:hover { filter: brightness(1.08); }
+.grid { display: grid; gap: 18px; margin-bottom: 28px; }
+@media (min-width: 720px) { .grid { grid-template-columns: 1fr 1fr; } }
+.card {
+  background: var(--card); border: 1px solid var(--card-border);
+  border-radius: 14px; padding: 18px 18px 8px;
+}
+.card h2 { font-size: 1rem; margin-bottom: 10px; }
+.card ul { padding-left: 18px; color: var(--text-dim); margin-bottom: 12px; }
+.card li { margin-bottom: 8px; }
+.tags { display: flex; flex-wrap: wrap; gap: 8px; margin: 8px 0 28px; }
+.tag {
+  font-family: var(--mono); font-size: 0.75rem; color: var(--text-dim);
+  border: 1px solid var(--card-border); border-radius: 999px; padding: 4px 10px;
+}
+.meta { color: var(--text-dim); font-size: 0.92rem; }
+.meta code {
+  font-family: var(--mono); font-size: 0.85rem;
+  background: var(--bg-alt); padding: 2px 6px; border-radius: 6px;
+}
+footer {
+  margin-top: 36px; padding-top: 18px; border-top: 1px solid var(--card-border);
+  color: var(--text-dim); font-size: 0.9rem;
+}
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <p class="eyebrow">Predictive maintenance · IoT / OT</p>
+    <h1>CNC Spindle Health Monitor</h1>
+    <p class="lead">A Plotly Dash floor board that turns multivariate sensor streams into per-cell health scores, TTF estimates, and maintenance notes.</p>
+    <p class="note">
+      This is a <strong>static project page</strong> hosted on GitHub Pages.
+      Prefer the hosted live demo when it is available; if Streamlit/Render is asleep or unreachable, use this page and run the app locally from the repository.
+    </p>
+    <div class="actions">
+      <a class="btn btn-primary" href="https://cnc-machine-health.onrender.com/" target="_blank" rel="noopener">Live demo (Render) ↗</a>
+      <a class="btn" href="https://github.com/alexanderduckworthhu/cnc-machine-health" target="_blank" rel="noopener">Code on GitHub ↗</a>
+      <a class="btn" href="https://alexanderduckworthhu.github.io/" target="_blank" rel="noopener">Portfolio ↗</a>
+    </div>
+    <p class="meta" style="margin-bottom:24px"><strong>Status:</strong> Portfolio learning project, not a certified CMMS / condition monitor</p>
+    <div class="grid">
+      <section class="card">
+        <h2>Challenge &amp; trade-offs</h2>
+        <ul>
+      <li>Unsupervised Isolation Forest on windowed statistics — works without labeled failures and stays explainable.</li>
+      <li>Mock OPC-UA tag layer demonstrates IT/OT architecture; NASA CMAPSS structure remapped to CNC vocabulary.</li>
+        </ul>
+      </section>
+      <section class="card">
+        <h2>Impact</h2>
+        <ul>
+      <li>182 scored windows across a 4-machine fleet with shop-floor traffic-light thresholds.</li>
+      <li>One click on a cell card refreshes traces and notes; multilingual UI.</li>
+        </ul>
+      </section>
+    </div>
+    <div class="tags">
+    <span class="tag">Python</span>
+    <span class="tag">Dash</span>
+    <span class="tag">Isolation Forest</span>
+    <span class="tag">OPC-UA mock</span>
+    <span class="tag">Plotly</span>
+    </div>
+    <section class="card">
+      <h2>Run locally</h2>
+      <p class="meta" style="margin-bottom:12px">Clone <code>cnc-machine-health</code>, then:</p>
+      <p class="meta"><code>python -m venv .venv &amp;&amp; source .venv/bin/activate &amp;&amp; pip install -r requirements.txt &amp;&amp; python scripts/build_demo_data.py &amp;&amp; python scripts/train_isolation_forest.py &amp;&amp; python app.py</code></p>
+    </section>
+    <footer>
+      Alexander Duckworth · static fallback for <code>https://alexanderduckworthhu.github.io/cnc-machine-health/</code><br />
+      Live demo remains the primary interactive experience when the third-party host is up.
+    </footer>
+  </div>
+</body>
+</html>
